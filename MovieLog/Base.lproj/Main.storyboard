@@ -112,11 +112,11 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MovieLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Xge-EC-wxa">
-                                <rect key="frame" x="15" y="94" width="50" height="50"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mainLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Xge-EC-wxa">
+                                <rect key="frame" x="15" y="94" width="45" height="45"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="MTO-vA-AXB"/>
-                                    <constraint firstAttribute="height" constant="50" id="am7-EU-BM5"/>
+                                    <constraint firstAttribute="width" constant="45" id="MTO-vA-AXB"/>
+                                    <constraint firstAttribute="height" constant="45" id="am7-EU-BM5"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -286,7 +286,8 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" systemColor="systemOrangeColor"/>
-                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="XC4-Dl-BNI" kind="relationship" relationship="viewControllers" id="FgH-wf-Feb"/>
@@ -309,7 +310,7 @@
                     <navigationBar key="navigationBar" hidden="YES" contentMode="scaleToFill" id="ZHX-1u-vQt">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -322,9 +323,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="MovieLogo" width="58.5" height="60"/>
         <image name="compose" width="80.5" height="80.5"/>
         <image name="home" width="33.5" height="33.5"/>
+        <image name="mainLogo" width="58.5" height="60"/>
         <image name="menu" width="33.5" height="33.5"/>
         <image name="search" width="33.5" height="33.5"/>
         <systemColor name="systemBackgroundColor">

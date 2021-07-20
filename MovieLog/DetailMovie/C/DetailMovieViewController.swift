@@ -20,7 +20,22 @@ class DetailMovieViewController: UIViewController {
     super.viewDidLoad()
     navigationController?.navigationBar.isHidden = false
     tabBarController?.tabBar.isHidden = true
+    configureNavigationBar()
     getData()
+  }
+  
+  private func configureNavigationBar() {
+    let leftBarButton = UIBarButtonItem(
+      image: UIImage(named: "arrow-left"),
+      style: .plain,
+      target: self,
+      action: #selector(handleLeftBarBtnPressed))
+    leftBarButton.tintColor = .white
+    self.navigationItem.leftBarButtonItem = leftBarButton
+  }
+  
+  @objc func handleLeftBarBtnPressed() {
+    navigationController?.popViewController(animated: true)
   }
   
   private func getData() {
