@@ -14,11 +14,18 @@ class HomeViewController: UIViewController {
   var upComingData = [Movie]()
   
   @IBOutlet weak var tableView: UITableView!
-
+  
   override func viewDidLoad() {
     super.viewDidLoad()
+    navigationController?.navigationBar.isHidden = true
     configureTableView()
     getData()
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(true)
+    navigationController?.navigationBar.isHidden = true
+    tabBarController?.tabBar.isHidden = false
   }
   
   private func configureTableView() {
@@ -71,14 +78,17 @@ extension HomeViewController:
     if indexPath.section == 0 {
       let nowPlayingCell = tableView.dequeueReusableCell(withIdentifier: "NowPlayingTableViewCell", for: indexPath) as! NowPlayingTableViewCell
       nowPlayingCell.config(with: nowPlayingData)
+      nowPlayingCell.delegate = self
       return nowPlayingCell
     } else if indexPath.section == 1 {
       let topRatedCell = tableView.dequeueReusableCell(withIdentifier: "TopRatedTableViewCell", for: indexPath) as! TopRatedTableViewCell
       topRatedCell.config(with: topRatedData)
+      topRatedCell.delegate = self
       return topRatedCell
     } else if indexPath.section == 2 {
       let upcomingCell = tableView.dequeueReusableCell(withIdentifier: "UpcomingTableViewCell", for: indexPath) as! UpcomingTableViewCell
       upcomingCell.config(with: upComingData)
+      upcomingCell.delegate = self
       return upcomingCell
     }
     return UITableViewCell()
@@ -102,9 +112,17 @@ extension HomeViewController:
     _ tableView: UITableView,
     viewForHeaderInSection section: Int
   ) -> UIView? {
-    let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: tableView.frame.height))
+    let view = UIView(
+      frame: CGRect(
+        x: 0, y: 0,
+        width: tableView.frame.width,
+        height: tableView.frame.height))
     view.backgroundColor = .black
-    let label = UILabel(frame: CGRect(x: 8, y: 4, width: view.bounds.size.width, height: view.bounds.size.height))
+    let label = UILabel(
+      frame: CGRect(
+        x: 8, y: 4,
+        width: view.bounds.size.width,
+        height: view.bounds.size.height))
     label.font = UIFont.boldSystemFont(ofSize: 17)
     label.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     label.textColor = .white
@@ -130,3 +148,25 @@ extension HomeViewController:
   }
 }
 
+extension HomeViewController:
+  NowPlayingCellDelegate,
+  TopRatedCellDelegate,
+  UpcomingCellDelegate {
+  func nowPlayingCellTapped(indexPath: IndexPath) {
+    guard let detailVC = self.storyboard?.instantiateViewController(identifier: "DetailMovieVC") as? DetailMovieViewController else { return }
+    detailVC.id = nowPlayingData[indexPath.item].id!
+    navigationController?.pushViewController(detailVC, animated: true)
+  }
+  
+  func topRatedCellTapped(indexPath: IndexPath) {
+    guard let detailVC = self.storyboard?.instantiateViewController(identifier: "DetailMovieVC") as? DetailMovieViewController else { return }
+    detailVC.id = topRatedData[indexPath.item].id!
+    navigationController?.pushViewController(detailVC, animated: true)
+  }
+  
+  func upcomingCellDelegate(indexPath: IndexPath) {
+    guard let detailVC = self.storyboard?.instantiateViewController(identifier: "DetailMovieVC") as? DetailMovieViewController else { return }
+    detailVC.id = upComingData[indexPath.item].id!
+    navigationController?.pushViewController(detailVC, animated: true)
+  }
+}

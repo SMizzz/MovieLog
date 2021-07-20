@@ -8,8 +8,12 @@
 import UIKit
 import Kingfisher
 
+protocol NowPlayingCellDelegate: AnyObject {
+  func nowPlayingCellTapped(indexPath: IndexPath)
+}
+
 class NowPlayingTableViewCell: UITableViewCell {
-  
+  weak var delegate: NowPlayingCellDelegate?
   @IBOutlet weak var collectionView: UICollectionView!
   
   var nowPlayingData = [Movie]()
@@ -26,7 +30,9 @@ class NowPlayingTableViewCell: UITableViewCell {
   private func configureCollectionView() {
     collectionView.delegate = self
     collectionView.dataSource = self
-    collectionView.register(UINib(nibName: "NowPlayingCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "NowPlayingCollectionViewCell")
+    collectionView.register(
+      UINib(nibName: "NowPlayingCollectionViewCell", bundle: nil),
+      forCellWithReuseIdentifier: "NowPlayingCollectionViewCell")
   }
   
   func config(with movie: [Movie]) {
@@ -84,5 +90,9 @@ extension NowPlayingTableViewCell: UICollectionViewDelegateFlowLayout {
     minimumInteritemSpacingForSectionAt section: Int
   ) -> CGFloat {
     return 0
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    delegate?.nowPlayingCellTapped(indexPath: indexPath)
   }
 }

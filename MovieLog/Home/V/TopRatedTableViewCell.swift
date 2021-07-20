@@ -8,10 +8,14 @@
 import UIKit
 import Kingfisher
 
+protocol TopRatedCellDelegate: AnyObject {
+  func topRatedCellTapped(indexPath: IndexPath)
+}
+
 class TopRatedTableViewCell: UITableViewCell {
-  
   @IBOutlet weak var collectionView: UICollectionView!
   var topRatedData = [Movie]()
+  weak var delegate: TopRatedCellDelegate?
   
   override func awakeFromNib() {
     super.awakeFromNib()
@@ -27,7 +31,9 @@ class TopRatedTableViewCell: UITableViewCell {
   private func configureCollectionView() {
     collectionView.delegate = self
     collectionView.dataSource = self
-    collectionView.register(UINib(nibName: "CommonCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CommonCollectionViewCell")
+    collectionView.register(
+      UINib(nibName: "CommonCollectionViewCell", bundle: nil),
+      forCellWithReuseIdentifier: "CommonCollectionViewCell")
     collectionView.backgroundColor = .black
   }
   
@@ -51,7 +57,9 @@ extension TopRatedTableViewCell:
     _ collectionView: UICollectionView,
     cellForItemAt indexPath: IndexPath
   ) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CommonCollectionViewCell", for: indexPath) as! CommonCollectionViewCell
+    let cell = collectionView.dequeueReusableCell(
+      withReuseIdentifier: "CommonCollectionViewCell",
+      for: indexPath) as! CommonCollectionViewCell
     if let image = topRatedData[indexPath.item].posterPath {
       cell.posterImage.kf.setImage(with: URL(string: "https://image.tmdb.org/t/p/w500\(image)"))
     } else {
@@ -87,5 +95,11 @@ extension TopRatedTableViewCell:
     minimumInteritemSpacingForSectionAt section: Int
   ) -> CGFloat {
     return 0
+  }
+  
+  func collectionView(
+    _ collectionView: UICollectionView,
+    didSelectItemAt indexPath: IndexPath) {
+    delegate?.topRatedCellTapped(indexPath: indexPath)
   }
 }

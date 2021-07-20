@@ -8,8 +8,12 @@
 import UIKit
 import Kingfisher
 
+protocol UpcomingCellDelegate: AnyObject {
+  func upcomingCellDelegate(indexPath: IndexPath)
+}
+
 class UpcomingTableViewCell: UITableViewCell {
-  
+  weak var delegate: UpcomingCellDelegate?
   var upcomingData = [Movie]()
   @IBOutlet weak var collectionView: UICollectionView!
   
@@ -25,7 +29,9 @@ class UpcomingTableViewCell: UITableViewCell {
   private func configureCollectionView() {
     collectionView.delegate = self
     collectionView.dataSource = self
-    collectionView.register(UINib(nibName: "CommonCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CommonCollectionViewCell")
+    collectionView.register(
+      UINib(nibName: "CommonCollectionViewCell", bundle: nil),
+      forCellWithReuseIdentifier: "CommonCollectionViewCell")
     collectionView.backgroundColor = .black
   }
   
@@ -85,5 +91,11 @@ extension UpcomingTableViewCell:
     minimumInteritemSpacingForSectionAt section: Int
   ) -> CGFloat {
     return 0.0
+  }
+  func collectionView(
+    _ collectionView: UICollectionView,
+    didSelectItemAt indexPath: IndexPath
+  ) {
+    delegate?.upcomingCellDelegate(indexPath: indexPath)
   }
 }
