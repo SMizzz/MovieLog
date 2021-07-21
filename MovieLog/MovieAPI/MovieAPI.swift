@@ -11,6 +11,7 @@ enum MovieAPI {
   case nowPlaying
   case topRated
   case upComing
+  case popular
   case detail(id: Int)
   case movieSearch(query: String)
 }
@@ -29,6 +30,8 @@ extension MovieAPI: TargetType {
       return "/movie/top_rated"
     case .upComing:
       return "/movie/upcoming"
+    case .popular:
+      return "/movie/popular"
     case .detail(let id):
       return "/movie/\(id)"
     case .movieSearch(_):
@@ -38,7 +41,7 @@ extension MovieAPI: TargetType {
   
   var method: Moya.Method {
     switch self {
-    case .nowPlaying, .topRated, .upComing, .detail(_), .movieSearch(_):
+    case .nowPlaying, .topRated, .upComing, .popular, .detail(_), .movieSearch(_):
       return .get
     }
   }
@@ -49,7 +52,7 @@ extension MovieAPI: TargetType {
   
   var task: Task {
     switch self {
-    case .nowPlaying, .topRated, .upComing:
+    case .nowPlaying, .topRated, .upComing, .popular:
       return .requestParameters(
         parameters: [
           "api_key": "1f2d99c9366d63893dfedd75762e09ba",
