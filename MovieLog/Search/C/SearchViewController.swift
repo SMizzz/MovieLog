@@ -18,22 +18,34 @@ class SearchViewController: UIViewController {
     configureSearchBar()
     configureTableView()
     getData()
+    setupTapGRForKeyboardDismissal()
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(true)
+    navigationController?.navigationBar.isHidden = true
+    tabBarController?.tabBar.isHidden = false
   }
   
   private func configureSearchBar() {
     searchBar.backgroundImage = UIImage()
-    searchBar.setImage(UIImage(named: "search_white"), for: .search, state: .normal)
+    searchBar.setImage(
+      UIImage(named: "search_white"),
+      for: .search,
+      state: .normal)
     searchBar.tintColor = .white
     searchBar.barStyle = .black
     
     searchBar.searchTextField.textColor = .white
     searchBar.searchTextField.autocorrectionType = .no
+    searchBar.delegate = self
   }
   
   private func configureTableView() {
     tableView.delegate = self
     tableView.dataSource = self
     tableView.separatorColor = .white
+    tableView.allowsSelection = true
   }
   
   private func getData() {
@@ -71,7 +83,7 @@ extension SearchViewController:
     _ tableView: UITableView,
     heightForRowAt indexPath: IndexPath
   ) -> CGFloat {
-    return 51
+    return 51.0
   }
   
   func tableView(
@@ -102,5 +114,17 @@ extension SearchViewController:
     heightForHeaderInSection section: Int
   ) -> CGFloat {
     return 50.0
+  }
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    print("tapped")
+  }
+}
+
+extension SearchViewController: UISearchBarDelegate {
+  func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    guard let resultVC = self.storyboard?.instantiateViewController(withIdentifier: "ResultSearchVC") as? ResultSearchViewController else { return }
+    resultVC.query = searchBar.searchTextField.text!
+    self.navigationController?.pushViewController(resultVC, animated: true)
   }
 }

@@ -8,6 +8,5 @@
 import UIKit
 
 class PopularKeywordTableViewCell: UITableViewCell {
-
   @IBOutlet weak var keywordLabel: UILabel!
 }
