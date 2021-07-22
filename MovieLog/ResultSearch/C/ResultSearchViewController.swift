@@ -36,6 +36,7 @@ class ResultSearchViewController: UIViewController {
       action: #selector(handleLeftBarBtnPressed))
     leftBarButton.tintColor = .white
     self.navigationItem.leftBarButtonItem = leftBarButton
+    navigationController?.navigationBar.barTintColor = .black
   }
   
   @objc func handleLeftBarBtnPressed() {
@@ -99,12 +100,23 @@ extension ResultSearchViewController:
       for: indexPath) as! ResultSearchCollectionViewCell
     let result = resultMovieData[indexPath.item]
     if let image = result.backdropPath {
-      cell.posterImageView.kf.setImage(with: URL(string: "https://image.tmdb.org/t/p/w500\(image)"))
+      cell.posterImageView.kf.setImage(
+        with: URL(string: "https://image.tmdb.org/t/p/w500\(image)"))
     } else {
       cell.posterImageView.image = UIImage(named: "noImage")
     }
     cell.titleLabel.text = result.title
     return cell
+  }
+  
+  func collectionView(
+    _ collectionView: UICollectionView,
+    didSelectItemAt indexPath: IndexPath
+  ) {
+    guard let detailVC = self.storyboard?.instantiateViewController(
+            withIdentifier: "DetailMovieVC") as? DetailMovieViewController else { return }
+    detailVC.id = resultMovieData[indexPath.item].id!
+    navigationController?.pushViewController(detailVC, animated: true)
   }
 }
 
