@@ -290,36 +290,42 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="35" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ia4-kI-eHB">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3iv-qk-BUV">
                                 <rect key="frame" x="0.0" y="144" width="414" height="540"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="540" id="ZIg-3h-LGr"/>
+                                    <constraint firstAttribute="height" constant="540" id="yBv-gP-3aH"/>
                                 </constraints>
+                                <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PopularKeywordTableViewCell" rowHeight="58" id="G9u-RA-0bs" customClass="PopularKeywordTableViewCell" customModule="MovieLog" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="58"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PopularKeywordTableViewCell" id="tbP-Ni-UwH" customClass="PopularKeywordTableViewCell" customModule="MovieLog" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="G9u-RA-0bs" id="SAr-yj-bGR">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="58"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tbP-Ni-UwH" id="BpM-jL-RiP">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xxf-zm-LY3">
-                                                    <rect key="frame" x="20" y="18" width="374" height="22"/>
-                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="15"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gTs-SK-Y0N">
+                                                    <rect key="frame" x="10" y="0.5" width="394" height="43"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="43" id="pkg-zW-C5H"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="popularKeywordBtnTap:" destination="tbP-Ni-UwH" eventType="touchUpInside" id="Lwu-Pv-8nH"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="xxf-zm-LY3" firstAttribute="top" secondItem="SAr-yj-bGR" secondAttribute="topMargin" constant="7" id="EsD-S3-Aj2"/>
-                                                <constraint firstItem="xxf-zm-LY3" firstAttribute="leading" secondItem="SAr-yj-bGR" secondAttribute="leadingMargin" id="FhP-uP-2Wb"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="xxf-zm-LY3" secondAttribute="bottom" constant="7" id="SAp-H1-ZPe"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="xxf-zm-LY3" secondAttribute="trailing" id="wiR-Yu-ERc"/>
+                                                <constraint firstItem="gTs-SK-Y0N" firstAttribute="centerY" secondItem="BpM-jL-RiP" secondAttribute="centerY" id="Hfc-js-FdU"/>
+                                                <constraint firstItem="gTs-SK-Y0N" firstAttribute="leading" secondItem="BpM-jL-RiP" secondAttribute="leading" constant="10" id="O8s-pI-bAn"/>
+                                                <constraint firstAttribute="trailing" secondItem="gTs-SK-Y0N" secondAttribute="trailing" constant="10" id="fxm-RF-QUv"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="keywordLabel" destination="xxf-zm-LY3" id="B6X-wf-B8V"/>
+                                            <outlet property="popularKeywordButton" destination="gTs-SK-Y0N" id="pZB-wS-jq5"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -328,12 +334,12 @@
                         <viewLayoutGuide key="safeArea" id="LKU-uL-vim"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="ia4-kI-eHB" firstAttribute="top" secondItem="mcV-g8-RaV" secondAttribute="bottom" id="6dc-Am-a1C"/>
+                            <constraint firstItem="3iv-qk-BUV" firstAttribute="leading" secondItem="LKU-uL-vim" secondAttribute="leading" id="GWN-qF-fXJ"/>
                             <constraint firstItem="mcV-g8-RaV" firstAttribute="leading" secondItem="LKU-uL-vim" secondAttribute="leading" id="HSf-EV-4hB"/>
+                            <constraint firstItem="3iv-qk-BUV" firstAttribute="top" secondItem="mcV-g8-RaV" secondAttribute="bottom" id="QOX-jw-J15"/>
                             <constraint firstItem="mcV-g8-RaV" firstAttribute="trailing" secondItem="LKU-uL-vim" secondAttribute="trailing" id="VkO-yi-jB5"/>
                             <constraint firstItem="mcV-g8-RaV" firstAttribute="top" secondItem="LKU-uL-vim" secondAttribute="top" id="WJk-5Z-Cux"/>
-                            <constraint firstItem="ia4-kI-eHB" firstAttribute="leading" secondItem="LKU-uL-vim" secondAttribute="leading" id="cJc-rH-nV3"/>
-                            <constraint firstItem="LKU-uL-vim" firstAttribute="trailing" secondItem="ia4-kI-eHB" secondAttribute="trailing" id="cge-sj-XIC"/>
+                            <constraint firstItem="LKU-uL-vim" firstAttribute="trailing" secondItem="3iv-qk-BUV" secondAttribute="trailing" id="bc2-0K-lfN"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -341,7 +347,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="searchBar" destination="mcV-g8-RaV" id="RrT-OH-B2y"/>
-                        <outlet property="tableView" destination="ia4-kI-eHB" id="3SO-Ev-q9y"/>
+                        <outlet property="tableView" destination="3iv-qk-BUV" id="2NV-aF-uB0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HsI-9S-iQ0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

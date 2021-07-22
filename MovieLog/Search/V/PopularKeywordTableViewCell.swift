@@ -7,6 +7,15 @@
 
 import UIKit
 
+protocol PopularKeywordCellDelegate: AnyObject {
+  func cellTapped(cell: PopularKeywordTableViewCell)
+}
+
 class PopularKeywordTableViewCell: UITableViewCell {
-  @IBOutlet weak var keywordLabel: UILabel!
+  weak var delegate: PopularKeywordCellDelegate?
+  @IBOutlet weak var popularKeywordButton: UIButton!
+  
+  @IBAction func popularKeywordBtnTap(_ sender: Any) {
+    delegate?.cellTapped(cell: self)
+  }
 }

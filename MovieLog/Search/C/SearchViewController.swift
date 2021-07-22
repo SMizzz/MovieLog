@@ -19,6 +19,8 @@ class SearchViewController: UIViewController {
     configureTableView()
     getData()
     setupTapGRForKeyboardDismissal()
+    
+    navigationController?.navigationBar.barTintColor = .black
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -45,7 +47,7 @@ class SearchViewController: UIViewController {
     tableView.delegate = self
     tableView.dataSource = self
     tableView.separatorColor = .white
-    tableView.allowsSelection = true
+    tableView.allowsSelectionDuringEditing = true
   }
   
   private func getData() {
@@ -79,7 +81,9 @@ extension SearchViewController:
     for num in 1...popularKeyword.count - 1 {
       number.append(num)
     }
-    cell.keywordLabel.text = "\(number[indexPath.item]). \(popular.title!)"
+    cell.popularKeywordButton.contentHorizontalAlignment = .left
+    cell.popularKeywordButton.setTitle("\(number[indexPath.item]). \(popular.title!)", for: .normal)
+    cell.delegate = self
     return cell
   }
   
@@ -119,10 +123,6 @@ extension SearchViewController:
   ) -> CGFloat {
     return 50.0
   }
-  
-  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    print("tapped")
-  }
 }
 
 extension SearchViewController: UISearchBarDelegate {
@@ -130,5 +130,14 @@ extension SearchViewController: UISearchBarDelegate {
     guard let resultVC = self.storyboard?.instantiateViewController(withIdentifier: "ResultSearchVC") as? ResultSearchViewController else { return }
     resultVC.query = searchBar.searchTextField.text!
     self.navigationController?.pushViewController(resultVC, animated: true)
+  }
+}
+
+extension SearchViewController: PopularKeywordCellDelegate {
+  func cellTapped(cell: PopularKeywordTableViewCell) {
+    let indexPath = tableView.indexPath(for: cell)
+    guard let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailMovieVC") as? DetailMovieViewController else { return }
+    detailVC.id = popularKeyword[indexPath!.row].id!
+    navigationController?.pushViewController(detailVC, animated: true)
   }
 }
