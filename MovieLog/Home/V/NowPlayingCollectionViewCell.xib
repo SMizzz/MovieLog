@@ -16,26 +16,33 @@
                 <rect key="frame" x="0.0" y="0.0" width="440" height="386"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="harrypotter" translatesAutoresizingMaskIntoConstraints="NO" id="o5d-WH-y79">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="o5d-WH-y79">
                         <rect key="frame" x="0.0" y="0.0" width="440" height="386"/>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XVw-nd-cf8">
+                        <rect key="frame" x="15" y="339.5" width="410" height="31.5"/>
+                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="26"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="XVw-nd-cf8" secondAttribute="trailing" constant="15" id="4dG-wC-g5q"/>
                 <constraint firstItem="o5d-WH-y79" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="AgV-8Q-yXv"/>
                 <constraint firstItem="o5d-WH-y79" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="IWu-8E-v9z"/>
+                <constraint firstItem="XVw-nd-cf8" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="15" id="J9l-11-zCm"/>
                 <constraint firstAttribute="trailing" secondItem="o5d-WH-y79" secondAttribute="trailing" id="KJ2-4V-Glt"/>
                 <constraint firstAttribute="bottom" secondItem="o5d-WH-y79" secondAttribute="bottom" id="NyL-AU-LsR"/>
+                <constraint firstAttribute="bottom" secondItem="XVw-nd-cf8" secondAttribute="bottom" constant="15" id="tw9-zv-d1A"/>
             </constraints>
             <size key="customSize" width="141" height="222"/>
             <connections>
                 <outlet property="posterImageView" destination="o5d-WH-y79" id="zns-gB-pEn"/>
+                <outlet property="titleLabel" destination="XVw-nd-cf8" id="wzf-Rv-xpb"/>
             </connections>
             <point key="canvasLocation" x="205.79710144927537" y="161.38392857142856"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <image name="harrypotter" width="840" height="1200"/>
-    </resources>
 </document>

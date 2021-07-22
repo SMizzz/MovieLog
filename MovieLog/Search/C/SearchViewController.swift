@@ -75,7 +75,11 @@ extension SearchViewController:
       for: indexPath) as! PopularKeywordTableViewCell
     cell.backgroundColor = .black
     let popular = popularKeyword[indexPath.row]
-    cell.keywordLabel.text = "\(popular.title!)"
+    var number = [Int]()
+    for num in 1...popularKeyword.count - 1 {
+      number.append(num)
+    }
+    cell.keywordLabel.text = "\(number[indexPath.item]). \(popular.title!)"
     return cell
   }
   
@@ -83,7 +87,7 @@ extension SearchViewController:
     _ tableView: UITableView,
     heightForRowAt indexPath: IndexPath
   ) -> CGFloat {
-    return 51.0
+    return 50.0
   }
   
   func tableView(

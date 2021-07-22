@@ -12,8 +12,9 @@ class HomeViewController: UIViewController {
   var nowPlayingData = [Movie]()
   var topRatedData = [Movie]()
   var upComingData = [Movie]()
-  
   @IBOutlet weak var tableView: UITableView!
+  var pageControlIndexPath: IndexPath!
+  let myPageControl = UIPageControl()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -146,6 +147,40 @@ extension HomeViewController:
     }
     return 0
   }
+  
+  func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+    let footerView = UIView(
+      frame: CGRect(
+        x: 0, y: 0,
+        width: tableView.frame.width,
+        height: 40))
+    footerView.backgroundColor = .black
+    footerView.addSubview(myPageControl)
+    myPageControl.translatesAutoresizingMaskIntoConstraints = false
+    myPageControl.widthAnchor.constraint(equalTo: footerView.widthAnchor, multiplier: 0.45).isActive = true
+    myPageControl.heightAnchor.constraint(equalToConstant: 28).isActive = true
+    myPageControl.centerXAnchor.constraint(equalTo: footerView.centerXAnchor).isActive = true
+    myPageControl.centerYAnchor.constraint(equalTo: footerView.centerYAnchor).isActive = true
+    configureFooterMyPageControl()
+    return footerView
+  }
+  
+  private func configureFooterMyPageControl() {
+    myPageControl.tintColor = .white
+    myPageControl.currentPageIndicatorTintColor = .lightGray
+    myPageControl.currentPage = 0
+    myPageControl.numberOfPages = nowPlayingData.count
+  }
+  
+  func tableView(
+    _ tableView: UITableView,
+    heightForFooterInSection section: Int
+  ) -> CGFloat {
+    if section == 0 {
+      return 30.0
+    }
+    return 0.0
+  }
 }
 
 extension HomeViewController:
@@ -156,6 +191,10 @@ extension HomeViewController:
     guard let detailVC = self.storyboard?.instantiateViewController(identifier: "DetailMovieVC") as? DetailMovieViewController else { return }
     detailVC.id = nowPlayingData[indexPath.item].id!
     navigationController?.pushViewController(detailVC, animated: true)
+  }
+  
+  func swipeNowPlayingCellTapped(indexPath: IndexPath) {
+    myPageControl.currentPage = indexPath.item
   }
   
   func topRatedCellTapped(indexPath: IndexPath) {
