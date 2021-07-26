@@ -35,6 +35,8 @@
 		02BDB95426AEFA39003978CB /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BDB95326AEFA39003978CB /* ComposeViewController.swift */; };
 		02BDB95A26AEFB85003978CB /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BDB95826AEFB85003978CB /* MyCollectionViewCell.swift */; };
 		02BDB95B26AEFB85003978CB /* MyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02BDB95926AEFB85003978CB /* MyCollectionViewCell.xib */; };
+		02BDB96026AF0389003978CB /* ReviewData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 02BDB95E26AF0389003978CB /* ReviewData.xcdatamodeld */; };
+		02BDB96326AF0395003978CB /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BDB96226AF0395003978CB /* DataManager.swift */; };
 		3AF381F49DC6D650500C1633 /* Pods_MovieLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EA7A1E3FBB8DED0675D622A /* Pods_MovieLog.framework */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +71,8 @@
 		02BDB95326AEFA39003978CB /* ComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		02BDB95826AEFB85003978CB /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
 		02BDB95926AEFB85003978CB /* MyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCollectionViewCell.xib; sourceTree = "<group>"; };
+		02BDB95F26AF0389003978CB /* ReviewData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ReviewData.xcdatamodel; sourceTree = "<group>"; };
+		02BDB96226AF0395003978CB /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		2EA7A1E3FBB8DED0675D622A /* Pods_MovieLog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieLog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		68066DF3898D08DB41B4E95C /* Pods-MovieLog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieLog.debug.xcconfig"; path = "Target Support Files/Pods-MovieLog/Pods-MovieLog.debug.xcconfig"; sourceTree = "<group>"; };
 		804CA67A3840E8DE2B2E7C27 /* Pods-MovieLog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieLog.release.xcconfig"; path = "Target Support Files/Pods-MovieLog/Pods-MovieLog.release.xcconfig"; sourceTree = "<group>"; };
@@ -188,6 +192,7 @@
 				022F9E6126A7F3B30098A020 /* Utilities */,
 				024CDE9D26A5D89200DBBD3B /* Model */,
 				024CDE9626A5D86900DBBD3B /* MovieAPI */,
+				02BDB95D26AF0370003978CB /* Data */,
 				02B607F326A56EE600B14B79 /* Home */,
 				022F9E0526A69FAB0098A020 /* DetailMovie */,
 				02BDB95226AEFA1B003978CB /* Compose */,
@@ -290,6 +295,15 @@
 				02BDB95326AEFA39003978CB /* ComposeViewController.swift */,
 			);
 			path = Compose;
+			sourceTree = "<group>";
+		};
+		02BDB95D26AF0370003978CB /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				02BDB96226AF0395003978CB /* DataManager.swift */,
+				02BDB95E26AF0389003978CB /* ReviewData.xcdatamodeld */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		29E4B6B4EEB3B6BA603FA7F0 /* Frameworks */ = {
@@ -432,6 +446,7 @@
 				022F9E1226A6FC420098A020 /* DetailMovieViewController.swift in Sources */,
 				022F9DFD26A66A960098A020 /* CommonCollectionViewCell.swift in Sources */,
 				02B6081126A5719800B14B79 /* NowPlayingCollectionViewCell.swift in Sources */,
+				02BDB96326AF0395003978CB /* DataManager.swift in Sources */,
 				022F9E5E26A7EEAF0098A020 /* ResultSearchCollectionViewCell.swift in Sources */,
 				02BDB95426AEFA39003978CB /* ComposeViewController.swift in Sources */,
 				022F9E6726A7F4650098A020 /* NoSearchResultView.swift in Sources */,
@@ -448,6 +463,7 @@
 				022F9DF926A66A360098A020 /* TopRatedTableViewCell.swift in Sources */,
 				025D785826A929EB002581DD /* MyViewController.swift in Sources */,
 				022F9E5A26A7DEC80098A020 /* ResultSearchViewController.swift in Sources */,
+				02BDB96026AF0389003978CB /* ReviewData.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -651,6 +667,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		02BDB95E26AF0389003978CB /* ReviewData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				02BDB95F26AF0389003978CB /* ReviewData.xcdatamodel */,
+			);
+			currentVersion = 02BDB95F26AF0389003978CB /* ReviewData.xcdatamodel */;
+			path = ReviewData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 02438B7A26A1795A00D46659 /* Project object */;
 }

@@ -8,8 +8,13 @@
 import UIKit
 
 class ComposeViewController: UIViewController {
+  @IBOutlet weak var titleLabel: UILabel!
+  @IBOutlet weak var textView: UITextView!
   
   override func viewDidLoad() {
     super.viewDidLoad()
+  }
+  
+  @IBAction func onDragSlider(_ sender: UISlider) {
   }
 }

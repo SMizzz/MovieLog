@@ -274,6 +274,9 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="246" id="49O-Mx-JTp"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="onDragSlider:" destination="pHv-rN-XIw" eventType="valueChanged" id="sWW-ts-Gkv"/>
+                                </connections>
                             </slider>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="qF2-vT-Jni">
                                 <rect key="frame" x="30" y="200.5" width="216" height="40"/>
@@ -367,6 +370,10 @@
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="textView" destination="BtU-0S-Dj3" id="hCD-2Z-CUH"/>
+                        <outlet property="titleLabel" destination="qJQ-Ny-paL" id="NFT-Ek-PgR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v4B-EI-PBK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
