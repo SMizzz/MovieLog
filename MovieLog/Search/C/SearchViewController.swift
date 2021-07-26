@@ -19,7 +19,6 @@ class SearchViewController: UIViewController {
     configureTableView()
     getData()
     setupTapGRForKeyboardDismissal()
-    
     navigationController?.navigationBar.barTintColor = .black
   }
   
@@ -27,6 +26,7 @@ class SearchViewController: UIViewController {
     super.viewWillAppear(true)
     navigationController?.navigationBar.isHidden = true
     tabBarController?.tabBar.isHidden = false
+    searchBar.searchTextField.resignFirstResponder()
   }
   
   private func configureSearchBar() {

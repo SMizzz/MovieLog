@@ -50,4 +50,10 @@ class DetailMovieViewController: UIViewController {
       self.overviewLabel.text = movie.overview
     }
   }
+  
+  @IBAction func pencilBtnTap(_ sender: Any) {
+    let mainSB = UIStoryboard(name: "Main", bundle: nil)
+    let composeVC = mainSB.instantiateViewController(withIdentifier: "ComposeVC")
+    navigationController?.pushViewController(composeVC, animated: true)
+  }
 }
