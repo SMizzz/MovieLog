@@ -346,15 +346,32 @@
                                     <action selector="onDragSlider:" destination="pHv-rN-XIw" eventType="valueChanged" id="sWW-ts-Gkv"/>
                                 </connections>
                             </slider>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6L9-9x-4el">
+                                <rect key="frame" x="90" y="514" width="234" height="40"/>
+                                <color key="backgroundColor" red="0.60810635853854422" green="0.12721528003063831" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="oTA-TR-WoO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="16"/>
+                                <state key="normal" title="삭제하기">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteBtnTap:" destination="pHv-rN-XIw" eventType="touchUpInside" id="PEN-70-V4F"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="MBB-7a-oW8"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="nz8-oZ-lC4" firstAttribute="top" secondItem="qF2-vT-Jni" secondAttribute="bottom" constant="20" id="8nY-nm-6tE"/>
                             <constraint firstItem="qF2-vT-Jni" firstAttribute="leading" secondItem="MBB-7a-oW8" secondAttribute="leading" constant="20" id="9oA-nA-WXX"/>
+                            <constraint firstItem="MBB-7a-oW8" firstAttribute="trailing" secondItem="6L9-9x-4el" secondAttribute="trailing" constant="90" id="I2X-cS-bKJ"/>
                             <constraint firstItem="qJQ-Ny-paL" firstAttribute="top" secondItem="Snf-Dp-0Lr" secondAttribute="bottom" constant="10" id="Kdb-kz-cvc"/>
+                            <constraint firstItem="6L9-9x-4el" firstAttribute="top" secondItem="BtU-0S-Dj3" secondAttribute="bottom" constant="50" id="Py7-rX-f9O"/>
                             <constraint firstItem="e2h-di-sm7" firstAttribute="leading" secondItem="MBB-7a-oW8" secondAttribute="leading" constant="10" id="XQQ-MD-daL"/>
                             <constraint firstItem="TIv-Qf-IXr" firstAttribute="top" secondItem="qJQ-Ny-paL" secondAttribute="bottom" constant="20" id="YtE-Xs-tee"/>
+                            <constraint firstItem="6L9-9x-4el" firstAttribute="leading" secondItem="MBB-7a-oW8" secondAttribute="leading" constant="90" id="Z5p-uH-7sY"/>
                             <constraint firstItem="e2h-di-sm7" firstAttribute="top" secondItem="TIv-Qf-IXr" secondAttribute="bottom" constant="10" id="b4S-e9-g1u"/>
                             <constraint firstItem="Snf-Dp-0Lr" firstAttribute="top" secondItem="MBB-7a-oW8" secondAttribute="top" constant="10" id="edb-N2-Hn6"/>
                             <constraint firstItem="BtU-0S-Dj3" firstAttribute="leading" secondItem="MBB-7a-oW8" secondAttribute="leading" constant="20" id="j3m-es-0Nt"/>
@@ -386,6 +403,7 @@
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="deleteButton" destination="6L9-9x-4el" id="2tr-MR-lfO"/>
                         <outlet property="slider" destination="e2h-di-sm7" id="iNJ-mQ-E8P"/>
                         <outlet property="textView" destination="BtU-0S-Dj3" id="hCD-2Z-CUH"/>
                         <outlet property="titleLabel" destination="qJQ-Ny-paL" id="NFT-Ek-PgR"/>

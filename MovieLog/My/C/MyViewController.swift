@@ -101,7 +101,6 @@ extension MyViewController: UICollectionViewDelegate, UICollectionViewDataSource
   ) {
     guard let composeVC = self.storyboard?.instantiateViewController(withIdentifier: "ComposeVC") as? ComposeViewController else { return }
     composeVC.editReview = DataManager.shared.reviewData[indexPath.item]
-    
     navigationController?.pushViewController(composeVC, animated: true)
   }
 }

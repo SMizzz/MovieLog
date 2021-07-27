@@ -17,23 +17,23 @@ class ComposeViewController: UIViewController {
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var textView: UITextView!
   @IBOutlet weak var slider: UISlider!
-
-  
-  var window: UIWindow?
+  @IBOutlet weak var deleteButton: UIButton!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     textView.autocorrectionType = .no
     setupTapGRForKeyboardDismissal()
-    
+    configureDeleteButton()
     if let review = editReview {
       titleLabel.text = review.title
       textView.text = review.content
       sliderImage(Float(review.sliderValue), Int(review.intValue))
+      deleteButton.isHidden = false
     } else {
       titleLabel.text = movieName
       slider.value = 0
       textView.text = ""
+      deleteButton.isHidden = true
     }
   }
   
@@ -45,6 +45,9 @@ class ComposeViewController: UIViewController {
     setupTapGRForKeyboardDismissal()
   }
   
+  private func configureDeleteButton() {
+    deleteButton.layer.cornerRadius = 20
+  }
   
   private func sliderImage(
     _ sliderValue: Float,
@@ -128,6 +131,21 @@ class ComposeViewController: UIViewController {
     }
   }
   
+  @IBAction func deleteBtnTap(_ sender: Any) {
+    let alertVC = UIAlertController(title: "확인!", message: "정말 삭제하시겠습니까?", preferredStyle: .alert)
+    
+    let okAction = UIAlertAction(title: "네ㅠㅠ", style: .default) { [self] (action) in
+      DataManager.shared.deleteReview(editReview)
+      navigationController?.popViewController(animated: true)
+    }
+   
+    let cancelAction = UIAlertAction(title: "아니요!", style: .cancel, handler: nil)
+    
+    alertVC.addAction(okAction)
+    alertVC.addAction(cancelAction)
+    
+    self.present(alertVC, animated: true, completion: nil)
+  }
 }
 
 extension ComposeViewController {
