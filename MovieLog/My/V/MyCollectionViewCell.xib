@@ -9,54 +9,48 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="MyCollectionViewCell" customModule="MovieLog" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MyCollectionViewCell" id="gTV-IL-0wX" customClass="MyCollectionViewCell" customModule="MovieLog" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="395" height="550"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="395" height="550"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hTk-bv-F18">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="harrypotter" translatesAutoresizingMaskIntoConstraints="NO" id="hTk-bv-F18">
                         <rect key="frame" x="0.0" y="0.0" width="395" height="550"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="glL-8h-QLz">
-                        <rect key="frame" x="20" y="427" width="355" height="28"/>
-                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="23"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ejw-28-NsD">
                         <rect key="frame" x="20" y="470" width="200" height="40"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="64x-VN-3XA">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_empty" translatesAutoresizingMaskIntoConstraints="NO" id="64x-VN-3XA">
                                 <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="s5Y-Lv-A3g"/>
                                     <constraint firstAttribute="width" constant="40" id="yMx-mO-apR"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4ti-Cd-Erw">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_empty" translatesAutoresizingMaskIntoConstraints="NO" id="4ti-Cd-Erw">
                                 <rect key="frame" x="40" y="0.0" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="cfc-B7-pbY"/>
                                     <constraint firstAttribute="height" constant="40" id="m10-I2-t1w"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="342-fW-XcP">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_empty" translatesAutoresizingMaskIntoConstraints="NO" id="342-fW-XcP">
                                 <rect key="frame" x="80" y="0.0" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="FdP-D5-xY8"/>
                                     <constraint firstAttribute="width" constant="40" id="oFf-Tr-dd9"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="4" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Dqs-p5-oB9">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="4" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_empty" translatesAutoresizingMaskIntoConstraints="NO" id="Dqs-p5-oB9">
                                 <rect key="frame" x="120" y="0.0" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="QpB-5Y-y4o"/>
                                     <constraint firstAttribute="height" constant="40" id="c5r-sb-mh8"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GnW-cG-Kbo">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_empty" translatesAutoresizingMaskIntoConstraints="NO" id="GnW-cG-Kbo">
                                 <rect key="frame" x="160" y="0.0" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="4QG-W0-7SD"/>
@@ -65,30 +59,49 @@
                             </imageView>
                         </subviews>
                     </stackView>
-                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="chj-Md-3nD">
-                        <rect key="frame" x="18" y="480" width="215" height="31"/>
+                    <slider opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="chj-Md-3nD">
+                        <rect key="frame" x="18" y="475" width="215" height="31"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="211" id="mIm-Jq-nXM"/>
                         </constraints>
+                        <color key="minimumTrackTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="maximumTrackTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="thumbTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </slider>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gFu-H0-l2F">
+                        <rect key="frame" x="20" y="439" width="355" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="glL-8h-QLz">
+                        <rect key="frame" x="20" y="406" width="355" height="28"/>
+                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="23"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="hTk-bv-F18" secondAttribute="trailing" id="1DQ-6r-20M"/>
                 <constraint firstItem="Ejw-28-NsD" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="2Uz-6J-ee1"/>
+                <constraint firstItem="Ejw-28-NsD" firstAttribute="top" secondItem="gFu-H0-l2F" secondAttribute="bottom" constant="15" id="3mz-PR-oit"/>
+                <constraint firstItem="gFu-H0-l2F" firstAttribute="top" secondItem="glL-8h-QLz" secondAttribute="bottom" constant="5" id="9hh-Pv-kCN"/>
                 <constraint firstAttribute="bottom" secondItem="Ejw-28-NsD" secondAttribute="bottom" constant="40" id="DYS-mJ-Roo"/>
+                <constraint firstAttribute="trailing" secondItem="gFu-H0-l2F" secondAttribute="trailing" constant="20" id="Ejr-70-2pb"/>
                 <constraint firstItem="chj-Md-3nD" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="GCx-5N-yfL"/>
-                <constraint firstItem="Ejw-28-NsD" firstAttribute="top" secondItem="glL-8h-QLz" secondAttribute="bottom" constant="15" id="KCX-zi-7sB"/>
                 <constraint firstItem="hTk-bv-F18" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="LMP-Ez-2UE"/>
                 <constraint firstItem="hTk-bv-F18" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="PcW-Iz-Nig"/>
+                <constraint firstItem="gFu-H0-l2F" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="Z84-ER-etY"/>
                 <constraint firstItem="glL-8h-QLz" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="ay6-Ik-qNM"/>
                 <constraint firstAttribute="trailing" secondItem="glL-8h-QLz" secondAttribute="trailing" constant="20" id="dKa-PP-npe"/>
                 <constraint firstAttribute="bottom" secondItem="hTk-bv-F18" secondAttribute="bottom" id="gvP-wi-eTq"/>
-                <constraint firstAttribute="bottom" secondItem="chj-Md-3nD" secondAttribute="bottom" constant="40" id="jhe-e5-K1l"/>
+                <constraint firstAttribute="bottom" secondItem="chj-Md-3nD" secondAttribute="bottom" constant="45" id="jhe-e5-K1l"/>
             </constraints>
             <size key="customSize" width="398" height="557"/>
             <connections>
+                <outlet property="dateLabel" destination="gFu-H0-l2F" id="KFE-gk-gH5"/>
                 <outlet property="posterImageView" destination="hTk-bv-F18" id="4Dl-bd-NX6"/>
                 <outlet property="slider" destination="chj-Md-3nD" id="A6L-bZ-KEg"/>
                 <outlet property="titleLabel" destination="glL-8h-QLz" id="Ztd-Uw-g0b"/>
@@ -96,4 +109,8 @@
             <point key="canvasLocation" x="-113.768115942029" y="196.875"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="harrypotter" width="840" height="1200"/>
+        <image name="star_empty" width="80" height="80"/>
+    </resources>
 </document>

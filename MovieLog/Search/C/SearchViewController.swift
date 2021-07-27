@@ -26,6 +26,7 @@ class SearchViewController: UIViewController {
     super.viewWillAppear(true)
     navigationController?.navigationBar.isHidden = true
     tabBarController?.tabBar.isHidden = false
+    searchBar.searchTextField.text = ""
     searchBar.searchTextField.resignFirstResponder()
   }
   

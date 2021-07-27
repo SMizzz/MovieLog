@@ -24,5 +24,4 @@ class NowPlayingCollectionViewCell: UICollectionViewCell {
     titleLabel.layer.shadowOffset = CGSize(width: 3, height: 3)
     titleLabel.layer.masksToBounds = false
   }
-  
 }

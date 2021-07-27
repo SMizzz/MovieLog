@@ -15,6 +15,12 @@ class PopularKeywordTableViewCell: UITableViewCell {
   weak var delegate: PopularKeywordCellDelegate?
   @IBOutlet weak var popularKeywordButton: UIButton!
   
+  override func awakeFromNib() {
+      super.awakeFromNib()
+      // Initialization code
+    backgroundColor = .black
+  }
+  
   @IBAction func popularKeywordBtnTap(_ sender: Any) {
     delegate?.cellTapped(cell: self)
   }

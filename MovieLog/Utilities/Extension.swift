@@ -20,3 +20,14 @@ extension UIViewController {
     view.endEditing(true)
   }
 }
+
+extension UIAlertController {
+  func removeErrorWidthConstraints() {
+    // width == -16 이라는 constraints 에러를 없애기 위한 func
+    for subView in self.view.subviews {
+      for constraint in subView.constraints where constraint.debugDescription.contains("width == - 16") {
+        subView.removeConstraint(constraint)
+      }
+    }
+  }
+}

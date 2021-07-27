@@ -14,6 +14,8 @@ class DetailMovieViewController: UIViewController {
   @IBOutlet weak var averageLabel: UILabel!
   @IBOutlet weak var overviewLabel: UILabel!
   
+  var movieData: Movie?
+  
   var id: Int = 0
 
   override func viewDidLoad() {
@@ -40,6 +42,7 @@ class DetailMovieViewController: UIViewController {
   
   private func getData() {
     MovieNetworkManager.getDetailMovieData(id: id) { (movie) in
+      self.movieData = movie
       if let image = movie.posterPath {
         self.posterImageView.kf.setImage(with: URL(string: "https://image.tmdb.org/t/p/w500\(image)"))
       } else {
@@ -52,8 +55,9 @@ class DetailMovieViewController: UIViewController {
   }
   
   @IBAction func pencilBtnTap(_ sender: Any) {
-    let mainSB = UIStoryboard(name: "Main", bundle: nil)
-    let composeVC = mainSB.instantiateViewController(withIdentifier: "ComposeVC")
+    guard let composeVC = self.storyboard?.instantiateViewController(withIdentifier: "ComposeVC") as? ComposeViewController else { return }
+    composeVC.moviePosterName = movieData!.backdropPath
+    composeVC.movieName = movieData!.title
     navigationController?.pushViewController(composeVC, animated: true)
   }
 }

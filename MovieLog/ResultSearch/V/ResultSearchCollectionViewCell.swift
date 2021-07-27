@@ -14,5 +14,14 @@ class ResultSearchCollectionViewCell: UICollectionViewCell {
   override func awakeFromNib() {
     super.awakeFromNib()
     self.layer.cornerRadius = 40
+    labelShadow()
+  }
+  
+  private func labelShadow() {
+    titleLabel.layer.shadowColor = UIColor.black.cgColor
+    titleLabel.layer.shadowRadius = 3.0
+    titleLabel.layer.shadowOpacity = 0.5
+    titleLabel.layer.shadowOffset = CGSize(width: 2, height: 2)
+    titleLabel.layer.masksToBounds = false
   }
 }
