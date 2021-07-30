@@ -41,7 +41,7 @@ class MyViewController: UIViewController {
     navigationController?.navigationBar.isHidden = true
     tabBarController?.tabBar.isHidden = false
     DataManager.shared.fetchReview()
-    myReviewCountLabel.text = "내가 본 영화는, \(DataManager.shared.reviewData.count)개 입니다!"
+    myReviewCountLabel.text = "내가 작성한 영화 리뷰는, \(DataManager.shared.reviewData.count)개 입니다!"
     collectionView.reloadData()
   }
   
@@ -54,7 +54,9 @@ class MyViewController: UIViewController {
   }
 }
 
-extension MyViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension MyViewController:
+  UICollectionViewDelegate,
+  UICollectionViewDataSource {
   func collectionView(
     _ collectionView: UICollectionView,
     numberOfItemsInSection section: Int
@@ -88,7 +90,8 @@ extension MyViewController: UICollectionViewDelegate, UICollectionViewDataSource
     cell.dateLabel.text = convertNowStr
     
     if let image = reviewModel.poster {
-      cell.posterImageView.kf.setImage(with: URL(string: "https://image.tmdb.org/t/p/w500\(image)"))
+      cell.posterImageView.kf.setImage(
+        with: URL(string: "https://image.tmdb.org/t/p/w500\(image)"))
     } else {
       cell.posterImageView.image = UIImage(named: "noImage")
     }
@@ -101,11 +104,12 @@ extension MyViewController: UICollectionViewDelegate, UICollectionViewDataSource
   ) {
     guard let composeVC = self.storyboard?.instantiateViewController(withIdentifier: "ComposeVC") as? ComposeViewController else { return }
     composeVC.editReview = DataManager.shared.reviewData[indexPath.item]
-    navigationController?.pushViewController(composeVC, animated: true)
+    navigationController?.pushViewController(composeVC, animated: false)
   }
 }
 
-extension MyViewController: UICollectionViewDelegateFlowLayout {
+extension MyViewController:
+  UICollectionViewDelegateFlowLayout {
   func collectionView(
     _ collectionView: UICollectionView,
     layout collectionViewLayout: UICollectionViewLayout,

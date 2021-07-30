@@ -44,9 +44,10 @@ class DetailMovieViewController: UIViewController {
     MovieNetworkManager.getDetailMovieData(id: id) { (movie) in
       self.movieData = movie
       if let image = movie.posterPath {
-        self.posterImageView.kf.setImage(with: URL(string: "https://image.tmdb.org/t/p/w500\(image)"))
+        self.posterImageView.kf.setImage(
+          with: URL(string: "https://image.tmdb.org/t/p/w500\(image)"))
       } else {
-        print("이미지가 없습니다.")
+        self.posterImageView.image = UIImage(named: "noImage")
       }
       self.titleLabel.text = movie.title
       self.averageLabel.text = "⭐\(movie.average!)"
@@ -56,7 +57,11 @@ class DetailMovieViewController: UIViewController {
   
   @IBAction func pencilBtnTap(_ sender: Any) {
     guard let composeVC = self.storyboard?.instantiateViewController(withIdentifier: "ComposeVC") as? ComposeViewController else { return }
-    composeVC.moviePosterName = movieData!.backdropPath
+    if let image = movieData?.backdropPath {
+      composeVC.moviePosterName = movieData!.backdropPath
+    } else {
+      composeVC.moviePosterName = "noImage"
+    }
     composeVC.movieName = movieData!.title
     navigationController?.pushViewController(composeVC, animated: true)
   }

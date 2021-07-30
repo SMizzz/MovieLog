@@ -27,7 +27,9 @@ class ComposeViewController: UIViewController {
     if let review = editReview {
       titleLabel.text = review.title
       textView.text = review.content
-      sliderImage(Float(review.sliderValue), Int(review.intValue))
+      sliderImage(
+        Float(review.sliderValue),
+        Int(review.intValue))
       deleteButton.isHidden = false
     } else {
       titleLabel.text = movieName
@@ -53,7 +55,6 @@ class ComposeViewController: UIViewController {
     _ sliderValue: Float,
     _ intValues: Int) {
     slider.value = sliderValue
-    print("slider value \(sliderValue), intvalue \(intValues)")
     for index in 0...5 {
       if let starImage = view.viewWithTag(index) as? UIImageView {
         if index <= intValues / 2 {
@@ -89,59 +90,78 @@ class ComposeViewController: UIViewController {
   }
   
   @IBAction func backBtnTap(_ sender: Any) {
-    navigationController?.popViewController(animated: true)
+    navigationController?.popViewController(animated: false)
   }
   
   @IBAction func saveBtnTap(_ sender: Any) {
-    let nowDate = Date()
-    guard let title = titleLabel.text,
-          let content = textView.text else { return }
-    
-    if editReview == nil {
-      DataManager.shared.addReview(
-        title,
-        nowDate,
-        senderValue,
-        intValues,
-        content,
-        moviePosterName!)
-      NotificationCenter.default.post(
-        name: ComposeViewController.newReviewDidInsert,
-        object: nil)
-      navigationController?.popViewController(animated: true)
-      self.tabBarController?.selectedIndex = 2
-    } else if let edit = editReview {
-      edit.title = title
-      let originSenderValue = edit.sliderValue
-      let changeIntValue = intValues
-      let changeSenderValue = slider.value
-      
-      if originSenderValue == Double(changeSenderValue) {
-        edit.sliderValue = originSenderValue
-      } else {
-        edit.intValue = Int16(changeIntValue)
-        edit.sliderValue = Double(changeSenderValue)
+    if textView.text == "" {
+      let alertVC = UIAlertController(title: "확인!", message: "리뷰를 작성해주세요!", preferredStyle: .alert)
+      let okAction = UIAlertAction(title: "네", style: .cancel) { (_) in
+        self.textView.resignFirstResponder()
       }
-      edit.content = content
-      DataManager.shared.saveContext()
-      NotificationCenter.default.post(
-        name: ComposeViewController.reviewDidChange,
-        object: nil)
-      navigationController?.popViewController(animated: true)
+      alertVC.addAction(okAction)
+      self.present(alertVC, animated: false, completion: nil)
+      return
+    } else {
+      let nowDate = Date()
+      guard let title = titleLabel.text,
+            let content = textView.text else { return }
+      if editReview == nil {
+        DataManager.shared.addReview(
+          title,
+          nowDate,
+          senderValue,
+          intValues,
+          content,
+          moviePosterName!)
+        NotificationCenter.default.post(
+          name: ComposeViewController.newReviewDidInsert,
+          object: nil)
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
+          self.navigationController?.popToRootViewController(animated: true)
+        }
+        
+        self.tabBarController?.selectedIndex = 2
+      } else if let edit = editReview {
+        edit.title = title
+        let originSenderValue = edit.sliderValue
+        let changeIntValue = intValues
+        let changeSenderValue = slider.value
+        
+        if originSenderValue == Double(changeSenderValue) {
+          edit.sliderValue = originSenderValue
+        } else {
+          edit.intValue = Int16(changeIntValue)
+          edit.sliderValue = Double(changeSenderValue)
+        }
+        edit.content = content
+        DataManager.shared.saveContext()
+        NotificationCenter.default.post(
+          name: ComposeViewController.reviewDidChange,
+          object: nil)
+        navigationController?.popViewController(animated: false)
+      }
     }
   }
   
   @IBAction func deleteBtnTap(_ sender: Any) {
-    let alertVC = UIAlertController(title: "확인!", message: "정말 삭제하시겠습니까?", preferredStyle: .alert)
+    let alertVC = UIAlertController(
+      title: "확인!",
+      message: "정말 삭제하시겠습니까?",
+      preferredStyle: .alert)
     
-    let okAction = UIAlertAction(title: "네ㅠㅠ", style: .default) { [self] (action) in
+    let okAction = UIAlertAction(
+      title: "네ㅠㅠ",
+      style: .default) { [self] (action) in
       DataManager.shared.deleteReview(editReview)
       navigationController?.popViewController(animated: true)
     }
-   
-    let cancelAction = UIAlertAction(title: "아니요!", style: .cancel, handler: nil)
-    
     alertVC.addAction(okAction)
+   
+    let cancelAction = UIAlertAction(
+      title: "아니요!",
+      style: .cancel,
+      handler: nil)
     alertVC.addAction(cancelAction)
     
     self.present(alertVC, animated: true, completion: nil)

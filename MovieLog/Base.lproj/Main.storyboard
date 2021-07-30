@@ -348,13 +348,13 @@
                             </slider>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6L9-9x-4el">
                                 <rect key="frame" x="90" y="514" width="234" height="40"/>
-                                <color key="backgroundColor" red="0.60810635853854422" green="0.12721528003063831" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="oTA-TR-WoO"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="16"/>
                                 <state key="normal" title="삭제하기">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" systemColor="systemYellowColor"/>
                                 </state>
                                 <connections>
                                     <action selector="deleteBtnTap:" destination="pHv-rN-XIw" eventType="touchUpInside" id="PEN-70-V4F"/>
@@ -471,7 +471,7 @@
                                 </constraints>
                                 <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PopularKeywordTableViewCell" id="tbP-Ni-UwH" customClass="PopularKeywordTableViewCell" customModule="MovieLog" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PopularKeywordTableViewCell" rowHeight="43.5" id="tbP-Ni-UwH" customClass="PopularKeywordTableViewCell" customModule="MovieLog" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tbP-Ni-UwH" id="BpM-jL-RiP">
@@ -535,17 +535,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내가 본 영화는, 10개 입니다!" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJW-Ib-4o7">
-                                <rect key="frame" x="20" y="108" width="140" height="53"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내가 작성한 영화 리뷰는," lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJW-Ib-4o7">
+                                <rect key="frame" x="20" y="113" width="240" height="26.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="140" id="IJz-h7-aIA"/>
+                                    <constraint firstAttribute="width" constant="240" id="IJz-h7-aIA"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0wt-Rj-W0C">
-                                <rect key="frame" x="0.0" y="186" width="414" height="602"/>
+                                <rect key="frame" x="0.0" y="164.5" width="414" height="623.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Mkz-EN-bUk">
                                     <size key="itemSize" width="128" height="128"/>
@@ -561,7 +561,7 @@
                         <constraints>
                             <constraint firstItem="0wt-Rj-W0C" firstAttribute="leading" secondItem="p78-wv-0xS" secondAttribute="leading" id="3Te-RU-U79"/>
                             <constraint firstItem="0wt-Rj-W0C" firstAttribute="top" secondItem="fJW-Ib-4o7" secondAttribute="bottom" constant="25" id="7pW-zl-TD1"/>
-                            <constraint firstItem="fJW-Ib-4o7" firstAttribute="top" secondItem="p78-wv-0xS" secondAttribute="top" constant="20" id="QBL-rr-wdh"/>
+                            <constraint firstItem="fJW-Ib-4o7" firstAttribute="top" secondItem="p78-wv-0xS" secondAttribute="top" constant="25" id="QBL-rr-wdh"/>
                             <constraint firstItem="fJW-Ib-4o7" firstAttribute="leading" secondItem="p78-wv-0xS" secondAttribute="leading" constant="20" id="YPK-i0-jnt"/>
                             <constraint firstItem="p78-wv-0xS" firstAttribute="trailing" secondItem="0wt-Rj-W0C" secondAttribute="trailing" id="eJS-ya-6KU"/>
                             <constraint firstItem="p78-wv-0xS" firstAttribute="bottom" secondItem="0wt-Rj-W0C" secondAttribute="bottom" constant="25" id="n5B-VY-G2Z"/>
@@ -720,6 +720,9 @@
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

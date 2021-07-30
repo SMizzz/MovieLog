@@ -83,7 +83,9 @@ extension SearchViewController:
       number.append(num)
     }
     cell.popularKeywordButton.contentHorizontalAlignment = .left
-    cell.popularKeywordButton.setTitle("\(number[indexPath.item]). \(popular.title!)", for: .normal)
+    cell.popularKeywordButton.setTitle(
+      "\(number[indexPath.item]). \(popular.title!)",
+      for: .normal)
     cell.delegate = self
     return cell
   }
@@ -92,7 +94,7 @@ extension SearchViewController:
     _ tableView: UITableView,
     heightForRowAt indexPath: IndexPath
   ) -> CGFloat {
-    return 50.0
+    return 44.0
   }
   
   func tableView(
@@ -130,7 +132,7 @@ extension SearchViewController: UISearchBarDelegate {
   func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
     guard let resultVC = self.storyboard?.instantiateViewController(withIdentifier: "ResultSearchVC") as? ResultSearchViewController else { return }
     resultVC.query = searchBar.searchTextField.text!
-    self.navigationController?.pushViewController(resultVC, animated: true)
+    self.navigationController?.pushViewController(resultVC, animated: false)
   }
 }
 
@@ -139,6 +141,6 @@ extension SearchViewController: PopularKeywordCellDelegate {
     let indexPath = tableView.indexPath(for: cell)
     guard let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailMovieVC") as? DetailMovieViewController else { return }
     detailVC.id = popularKeyword[indexPath!.row].id!
-    navigationController?.pushViewController(detailVC, animated: true)
+    navigationController?.pushViewController(detailVC, animated: false)
   }
 }

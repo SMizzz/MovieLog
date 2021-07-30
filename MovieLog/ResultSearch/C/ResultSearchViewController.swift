@@ -23,6 +23,7 @@ class ResultSearchViewController: UIViewController {
     setConstraints()
     collectionView.isHidden = false
     noResultView.isHidden = true
+    tabBarController?.delegate = self
     configureNavigationBar()
     configureCollectionView()
     getData()
@@ -40,7 +41,7 @@ class ResultSearchViewController: UIViewController {
   }
   
   @objc func handleLeftBarBtnPressed() {
-    navigationController?.popViewController(animated: true)
+    navigationController?.popViewController(animated: false)
   }
   
   private func configureCollectionView() {
@@ -145,5 +146,16 @@ extension ResultSearchViewController:
     minimumInteritemSpacingForSectionAt section: Int
   ) -> CGFloat {
     return 0
+  }
+}
+
+extension ResultSearchViewController: UITabBarControllerDelegate {
+  func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+    
+    
+    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+      self.navigationController?.popToRootViewController(animated: true)
+    }
+    
   }
 }
