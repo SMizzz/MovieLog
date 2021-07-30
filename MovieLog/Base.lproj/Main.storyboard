@@ -536,9 +536,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내가 작성한 영화 리뷰는," lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJW-Ib-4o7">
-                                <rect key="frame" x="20" y="113" width="240" height="26.5"/>
+                                <rect key="frame" x="20" y="113" width="220" height="26.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="IJz-h7-aIA"/>
+                                    <constraint firstAttribute="width" constant="220" id="IJz-h7-aIA"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
