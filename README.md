@@ -10,7 +10,11 @@
 - 개발 언어
 
     - Swift
+   
+- 프레임워크
 
+    - CoreData
+  
 - 사용한 라이브러리
 
     - Moya
@@ -91,8 +95,8 @@
 
     ```jsx
     func decodeIfPresent(
-    	_ type: Int8.Type,
-    	forKey key: KeyedDecodingContainer<K>.Key
+     _ type: Int8.Type,
+     forKey key: KeyedDecodingContainer<K>.Key
     ) throws -> Int8?
     ```
 
@@ -108,17 +112,25 @@
     thumbNailImage = (try values.decode(String?.self, forKey: .thumbNailImage)) ?? ""
     ```
 
-    이번 에러를 해결하면서 느낀 점은 에러를 최대한 발생시키지 않도록 방어적인 코드를 작성해주는 것도 중요하다는 것이었다. '무조건 이 부분에서 에러가 날거야 그래서 이 에러가 났을 때는 얼럿을 띄워줘야 해' 이런 에러 핸들링과는 조금 결이 다른 부분을 경험해서 즐거웠다.
+    이번 에러를 해결하면서 느낀 점은 에러를 최대한 발생시키지 않도록 방어적인 코드를 작성해주는 것도 중요하다는 것이었다.  
+      
+    '무조건 이 부분에서 에러가 날거야 그래서 이 에러가 났을 때는 얼럿을 띄워줘야 해' 이런 에러 핸들링과는 조금 결이 다른 부분을 경험해서 즐거웠다.  
 
-    물론 서비스에서 데이터가 로드되지 않다면 결국엔 에러의 문제로 직결되지만 코드를 잘 작성해도 오픈되어 있는 API를 연동할 때는 nil 값을 받을 수도 있다는 전제를 항상 두고 코드를 구현해야한다는 것을 깨달았다.
+    물론 서비스에서 데이터가 로드되지 않다면 결국엔 에러의 문제로 직결되지만 코드를 잘 작성해도 
+      
+    오픈되어 있는 API를 연동할 때는 nil 값을 받을 수도 있다는 전제를 항상 두고 코드를 구현해야한다는 것을 깨달았다.  
   
 -> `Unbalanced calls to begin/end appearance transitions for ...`
 
-    Search 탭에서 검색을 하여  Result Search VC → DetailPost VC → Compose VC 로 메모를 작성하고 완료를 누르면 My VC로 이동해서 내가 작성한 메모를 바로 확인할 수 있게끔 로직을 짰다.
+    Search 탭에서 검색을 하여  Result Search VC → DetailPost VC → Compose VC 로  
+      
+    메모를 작성하고 완료를 누르면 My VC로 이동해서 내가 작성한 메모를 바로 확인할 수 있게끔 로직을 짰다.
 
     `Unbalanced calls to begin/end appearance transitions for ...`
-
-    그러고 Search 탭을 눌렀는데 위와 같은 에러가 떴다. 런타임 에러는 아니라 어떤 에러인 지 조금 더 살펴봤는데 UI를 관리하는 transition이 끝나지 않은 상태에서 다음 transition을 요청했을 때 발생한다.
+  
+    그러고 Search 탭을 눌렀는데 위와 같은 에러가 떴다. 런타임 에러는 아니라 어떤 에러인 지 조금 더 살펴봤는데  
+      
+    UI를 관리하는 transition이 끝나지 않은 상태에서 다음 transition을 요청했을 때 발생한다.
 
     Compose VC에서 작성 완료를 누르면 pop시키고 DetailPost VC에 머무르게 했었는데,
 
