@@ -78,14 +78,31 @@ extension SearchViewController:
       for: indexPath) as! PopularKeywordTableViewCell
     cell.backgroundColor = .black
     let popular = popularKeyword[indexPath.row]
-    var number = [Int]()
-    for num in 1...popularKeyword.count - 1 {
-      number.append(num)
+//    var number = [Int]()
+//    for num in 1...popularKeyword.count - 1 {
+//      number.append(num)
+//    }
+//    cell.popularKeywordButton.contentHorizontalAlignment = .left
+//    cell.popularKeywordButton.setTitle(
+//      "\(number[indexPath.item]). \(popular.title!)",
+//      for: .normal)
+    
+    switch indexPath.row {
+    case 0...9:
+      var number = [Int]()
+      for num in 1...popularKeyword.count - 1 {
+        number.append(num)
+      }
+      cell.popularKeywordButton.contentHorizontalAlignment = .left
+      cell.popularKeywordButton.setTitle(
+        "\(number[indexPath.item]). \(popular.title!)",
+        for: .normal)
+    default:
+      popularKeyword.remove(at: indexPath.row)
+      cell.popularKeywordButton.isHidden = true
+      
     }
-    cell.popularKeywordButton.contentHorizontalAlignment = .left
-    cell.popularKeywordButton.setTitle(
-      "\(number[indexPath.item]). \(popular.title!)",
-      for: .normal)
+    
     cell.delegate = self
     return cell
   }

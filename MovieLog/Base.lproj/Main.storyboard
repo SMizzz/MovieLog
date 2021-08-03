@@ -463,12 +463,9 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3iv-qk-BUV">
-                                <rect key="frame" x="0.0" y="144" width="414" height="540"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3iv-qk-BUV">
+                                <rect key="frame" x="0.0" y="144" width="414" height="620"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="540" id="yBv-gP-3aH"/>
-                                </constraints>
                                 <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PopularKeywordTableViewCell" rowHeight="43.5" id="tbP-Ni-UwH" customClass="PopularKeywordTableViewCell" customModule="MovieLog" customModuleProvider="target">
@@ -513,6 +510,7 @@
                             <constraint firstItem="mcV-g8-RaV" firstAttribute="trailing" secondItem="LKU-uL-vim" secondAttribute="trailing" id="VkO-yi-jB5"/>
                             <constraint firstItem="mcV-g8-RaV" firstAttribute="top" secondItem="LKU-uL-vim" secondAttribute="top" id="WJk-5Z-Cux"/>
                             <constraint firstItem="LKU-uL-vim" firstAttribute="trailing" secondItem="3iv-qk-BUV" secondAttribute="trailing" id="bc2-0K-lfN"/>
+                            <constraint firstItem="LKU-uL-vim" firstAttribute="bottom" secondItem="3iv-qk-BUV" secondAttribute="bottom" id="ce7-QM-zlJ"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
