@@ -370,8 +370,8 @@
 
     ```jsx
     func decodeIfPresent(
-    	_ type: Int8.Type,
-    	forKey key: KeyedDecodingContainer<K>.Key
+      _ type: Int8.Type,
+      forKey key: KeyedDecodingContainer<K>.Key
     ) throws -> Int8?
     ```
 
