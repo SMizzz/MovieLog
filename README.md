@@ -2,7 +2,6 @@
 
 앱 소개글
 
-- 기간: 2021. 07 .16 ~ (약 7일간 MVP 완성)
 - 소개
 
     - 영화를 검색하고, 내가 본 영화에 대한 메모를 남길 수 있는 서비스
@@ -161,7 +160,7 @@
         extension MovieAPI: TargetType {
           var baseURL: URL {
             guard let url = URL(string: "https://api.themoviedb.org/3") 
-        		else { fatalError("url error") }
+            else { fatalError("url error") }
             return url
           }
           
@@ -248,8 +247,8 @@
           MovieNetworkManager.getMovieData(source: .nowPlaying) { (movies) in
             self.nowPlayingData = movies
             OperationQueue.main.addOperation {
-        	  self.tableView.reloadData()
-        	}
+              self.tableView.reloadData()
+            }
           }
         }
         ```
