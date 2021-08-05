@@ -58,7 +58,7 @@ class DetailMovieViewController: UIViewController {
   @IBAction func pencilBtnTap(_ sender: Any) {
     guard let composeVC = self.storyboard?.instantiateViewController(withIdentifier: "ComposeVC") as? ComposeViewController else { return }
     if let image = movieData?.backdropPath {
-      composeVC.moviePosterName = movieData!.backdropPath
+      composeVC.moviePosterName = image
     } else {
       composeVC.moviePosterName = "noImage"
     }
