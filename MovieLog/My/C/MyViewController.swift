@@ -115,8 +115,9 @@ extension MyViewController:
     layout collectionViewLayout: UICollectionViewLayout,
     sizeForItemAt indexPath: IndexPath
   ) -> CGSize {
-    let width = collectionView.frame.size.width
-    return CGSize(width: width / 1.15, height: 500)
+    let width = collectionView.safeAreaLayoutGuide.layoutFrame.width
+    let height = collectionView.safeAreaLayoutGuide.layoutFrame.height
+    return CGSize(width: width / 1.15, height: height)
   }
   
   func collectionView(
