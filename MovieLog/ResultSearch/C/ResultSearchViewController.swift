@@ -150,9 +150,10 @@ extension ResultSearchViewController:
 }
 
 extension ResultSearchViewController: UITabBarControllerDelegate {
-  func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-    
-    
+  func tabBarController(
+    _ tabBarController: UITabBarController,
+    didSelect viewController: UIViewController
+  ) {
     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
       self.navigationController?.popToRootViewController(animated: true)
     }

@@ -52,7 +52,7 @@ class SearchViewController: UIViewController {
   }
   
   private func getData() {
-    MovieNetworkManager.getMovieData(source: .popular) { (movies) in
+    MovieNetworkManager.getPopularMovieData(page: 1) { (movies) in
       self.popularKeyword = movies
       self.tableView.reloadData()
     }
@@ -79,7 +79,6 @@ extension SearchViewController:
     cell.backgroundColor = .black
     cell.popularKeywordButton.contentHorizontalAlignment = .left
     cell.popularKeywordButton.setTitle("\(indexPath.row + 1)위  \(popularKeyword[indexPath.row].title!)", for: .normal)
-    
     cell.delegate = self
     return cell
   }
